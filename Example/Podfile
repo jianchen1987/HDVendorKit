@@ -1,6 +1,6 @@
 use_frameworks!
 
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'HDVendorKit_Example' do
   pod 'HDVendorKit', :path => '../'
@@ -8,6 +8,6 @@ target 'HDVendorKit_Example' do
   target 'HDVendorKit_Tests' do
     inherit! :search_paths
 
-    
+
   end
 end

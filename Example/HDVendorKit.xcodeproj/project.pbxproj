@@ -61,12 +61,12 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7DFD34E94D7F378CAE8B20F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		7DFD34E94D7F378CAE8B20F0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D0D06A83D1119563BF007AE /* Pods-HDVendorKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDVendorKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-HDVendorKit_Tests/Pods-HDVendorKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BA6E2FCB1E6D9FBDE405ABD6 /* Pods_HDVendorKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HDVendorKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF12722F03F7F5B7D9A9D4B6 /* HDVendorKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = HDVendorKit.podspec; path = ../HDVendorKit.podspec; sourceTree = "<group>"; };
-		E554CC5A10140D28553812BF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		CF12722F03F7F5B7D9A9D4B6 /* HDVendorKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HDVendorKit.podspec; path = ../HDVendorKit.podspec; sourceTree = "<group>"; };
+		E554CC5A10140D28553812BF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,6 @@
 				3081CD43BD91C8FA955275E8 /* Pods-HDVendorKit_Tests.debug.xcconfig */,
 				9D0D06A83D1119563BF007AE /* Pods-HDVendorKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,7 +207,8 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				7C51BDFA22B5633355FFB2F9 /* [CP] Embed Pods Frameworks */,
+				959AE6EF240E337000D3E3AE /* Create Umbrella Header File */,
+				D5F1C1F057A7193404CC6244 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -248,6 +248,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = wangwanjie;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = AUM2E6FK73;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +261,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -295,22 +299,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7C51BDFA22B5633355FFB2F9 /* [CP] Embed Pods Frameworks */ = {
+		959AE6EF240E337000D3E3AE /* Create Umbrella Header File */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Create Umbrella Header File";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n# 获取版本号，不传则自动获取\n# versionNumber=\"$MARKETING_VERSION\"\n# 生成头文件\npython ../HeaderFileGenerator.py\n";
+		};
+		D5F1C1F057A7193404CC6244 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HDVendorKit_Example/Pods-HDVendorKit_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/HDVendorKit/HDVendorKit.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-HDVendorKit_Example/Pods-HDVendorKit_Example-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/HDVendorKit/HDResources.bundle",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HDVendorKit.framework",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/HDResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HDVendorKit_Example/Pods-HDVendorKit_Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HDVendorKit_Example/Pods-HDVendorKit_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F753CB05D761500CF1C79321 /* [CP] Check Pods Manifest.lock */ = {
@@ -494,9 +516,12 @@
 			baseConfigurationReference = 190E20EB676508E8339D8293 /* Pods-HDVendorKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AUM2E6FK73;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HDVendorKit/HDVendorKit-Prefix.pch";
 				INFOPLIST_FILE = "HDVendorKit/HDVendorKit-Info.plist";
+				MARKETING_VERSION = 0.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -510,9 +535,12 @@
 			baseConfigurationReference = 480669860300C95BEFBE282F /* Pods-HDVendorKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AUM2E6FK73;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HDVendorKit/HDVendorKit-Prefix.pch";
 				INFOPLIST_FILE = "HDVendorKit/HDVendorKit-Info.plist";
+				MARKETING_VERSION = 0.0.1;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
