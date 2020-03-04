@@ -37,5 +37,5 @@ pod repo push Chaos "${podspec_name}" --allow-warnings --verbose --sources=https
 echo "发布 $filename 版本 $version 到 Chaos 结束\n"
 
 echo "开始打包 framework"
-pod package ${podspec_name} --no-mangle --exclude-deps --force --sources=https://github.com/CocoaPods/Specs.git,git@git.vipaylife.com:wangwanjie/tianxu-specs.git
+pod package ${podspec_name} --no-mangle --exclude-deps --force --spec-sources=https://github.com/CocoaPods/Specs.git,git@git.vipaylife.com:wangwanjie/tianxu-specs.git
 echo "打包 framework 结束\n"

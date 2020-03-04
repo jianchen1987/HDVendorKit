@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 /// 版本号
-static NSString * const HDVendorKit_VERSION = @"0.1.0";
+static NSString * const HDVendorKit_VERSION = @"0.1.1";
 
 #if __has_include("KVOController.h")
 #import "KVOController.h"
