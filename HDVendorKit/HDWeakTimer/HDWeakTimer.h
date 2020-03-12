@@ -3,7 +3,7 @@
 //  HDVendorKit
 //
 //  Created by VanJay on 16/1/3.
-//  Copyright © 2016年 golden. All rights reserved.
+//  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
