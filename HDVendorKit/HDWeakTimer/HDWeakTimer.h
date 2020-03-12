@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^WJTimerHandler)(id userInfo);
+typedef void (^HDTimerHandler)(id userInfo);
 
 @interface HDWeakTimer : NSObject
 
@@ -25,7 +25,7 @@ typedef void (^WJTimerHandler)(id userInfo);
  *  创建一个在BLOCK执行目标事件的定时器
  */
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval
-                                      block:(WJTimerHandler)block
+                                      block:(HDTimerHandler)block
                                    userInfo:(id)userInfo
                                     repeats:(BOOL)repeats;
 
