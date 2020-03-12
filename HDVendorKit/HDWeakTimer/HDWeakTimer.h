@@ -1,5 +1,5 @@
 //
-//  WJWeakTimer.h
+//  HDWeakTimer.h
 //  HDVendorKit
 //
 //  Created by VanJay on 16/1/3.
@@ -10,7 +10,7 @@
 
 typedef void (^WJTimerHandler)(id userInfo);
 
-@interface WJWeakTimer : NSObject
+@interface HDWeakTimer : NSObject
 
 /**
  *  创建一个不会强引用self的定时器

@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 /// 版本号
-static NSString * const HDVendorKit_VERSION = @"0.1.1";
+static NSString * const HDVendorKit_VERSION = @"0.1.2";
 
 #if __has_include("KVOController.h")
 #import "KVOController.h"
@@ -38,8 +38,8 @@ static NSString * const HDVendorKit_VERSION = @"0.1.1";
 #import "ObjcAssociatedObjectHelpers.h"
 #endif
 
-#if __has_include("WJWeakTimer.h")
-#import "WJWeakTimer.h"
+#if __has_include("HDWeakTimer.h")
+#import "HDWeakTimer.h"
 #endif
 
 #if __has_include("OTPGenerator.h")

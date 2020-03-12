@@ -1,14 +1,14 @@
 //
-//  WJWeakTimer.h
+//  HDWeakTimer.h
 //  HDVendorKit
 //
 //  Created by VanJay on 16/1/3.
 //  Copyright © 2016年 golden. All rights reserved.
 //
 
-#import "WJWeakTimer.h"
+#import "HDWeakTimer.h"
 
-@interface WJWeakTimerTarget : NSObject
+@interface HDWeakTimerTarget : NSObject
 
 @property (nonatomic, weak) id target;
 @property (nonatomic, assign) SEL selector;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation WJWeakTimerTarget
+@implementation HDWeakTimerTarget
 
 - (void)fire:(NSTimer *)timer {
     if (self.target) {
@@ -33,14 +33,14 @@
 
 @end
 
-@implementation WJWeakTimer
+@implementation HDWeakTimer
 
 + (NSTimer *)scheduledTimerWithTimeInterval:(NSTimeInterval)interval
                                      target:(id)aTarget
                                    selector:(SEL)aSelector
                                    userInfo:(id)userInfo
                                     repeats:(BOOL)repeats {
-    WJWeakTimerTarget *timerTarget = [[WJWeakTimerTarget alloc] init];
+    HDWeakTimerTarget *timerTarget = [[HDWeakTimerTarget alloc] init];
     timerTarget.target = aTarget;
     timerTarget.selector = aSelector;
     timerTarget.timer = [NSTimer scheduledTimerWithTimeInterval:interval
