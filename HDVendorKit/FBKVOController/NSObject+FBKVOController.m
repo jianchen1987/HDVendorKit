@@ -24,42 +24,37 @@ static void *NSObjectKVOControllerNonRetainingKey = &NSObjectKVOControllerNonRet
 
 @implementation NSObject (FBKVOController)
 
-- (FBKVOController *)KVOController
-{
-  id controller = objc_getAssociatedObject(self, NSObjectKVOControllerKey);
-  
-  // lazily create the KVOController
-  if (nil == controller) {
-    controller = [FBKVOController controllerWithObserver:self];
-    self.KVOController = controller;
-  }
-  
-  return controller;
+- (FBKVOController *)KVOController {
+    id controller = objc_getAssociatedObject(self, NSObjectKVOControllerKey);
+
+    // lazily create the KVOController
+    if (nil == controller) {
+        controller = [FBKVOController controllerWithObserver:self];
+        self.KVOController = controller;
+    }
+
+    return controller;
 }
 
-- (void)setKVOController:(FBKVOController *)KVOController
-{
-  objc_setAssociatedObject(self, NSObjectKVOControllerKey, KVOController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setKVOController:(FBKVOController *)KVOController {
+    objc_setAssociatedObject(self, NSObjectKVOControllerKey, KVOController, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (FBKVOController *)KVOControllerNonRetaining
-{
-  id controller = objc_getAssociatedObject(self, NSObjectKVOControllerNonRetainingKey);
-  
-  if (nil == controller) {
-    controller = [[FBKVOController alloc] initWithObserver:self retainObserved:NO];
-    self.KVOControllerNonRetaining = controller;
-  }
-  
-  return controller;
+- (FBKVOController *)KVOControllerNonRetaining {
+    id controller = objc_getAssociatedObject(self, NSObjectKVOControllerNonRetainingKey);
+
+    if (nil == controller) {
+        controller = [[FBKVOController alloc] initWithObserver:self retainObserved:NO];
+        self.KVOControllerNonRetaining = controller;
+    }
+
+    return controller;
 }
 
-- (void)setKVOControllerNonRetaining:(FBKVOController *)KVOControllerNonRetaining
-{
-  objc_setAssociatedObject(self, NSObjectKVOControllerNonRetainingKey, KVOControllerNonRetaining, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setKVOControllerNonRetaining:(FBKVOController *)KVOControllerNonRetaining {
+    objc_setAssociatedObject(self, NSObjectKVOControllerNonRetainingKey, KVOControllerNonRetaining, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 @end
-
 
 NS_ASSUME_NONNULL_END

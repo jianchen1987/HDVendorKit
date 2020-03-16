@@ -21,9 +21,9 @@
 
  FBKVOKeyPath(string.lowercaseString.length) => @"lowercaseString.length".
  */
-#define FBKVOKeyPath(KEYPATH) \
-@(((void)(NO && ((void)KEYPATH, NO)), \
-({ const char *fbkvokeypath = strchr(#KEYPATH, '.'); NSCAssert(fbkvokeypath, @"Provided key path is invalid."); fbkvokeypath + 1; })))
+#define FBKVOKeyPath(KEYPATH)             \
+    @(((void)(NO && ((void)KEYPATH, NO)), \
+       ({ const char *fbkvokeypath = strchr(#KEYPATH, '.'); NSCAssert(fbkvokeypath, @"Provided key path is invalid."); fbkvokeypath + 1; })))
 
 /**
  This macro ensures that key path exists at compile time.
@@ -35,7 +35,7 @@
  FBKVOClassKeyPath(NSString, lowercaseString.length) => @"lowercaseString.length"
  */
 #define FBKVOClassKeyPath(CLASS, KEYPATH) \
-@(((void)(NO && ((void)((CLASS *)(nil)).KEYPATH, NO)), #KEYPATH))
+    @(((void)(NO && ((void)((CLASS *)(nil)).KEYPATH, NO)), #KEYPATH))
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -138,7 +138,6 @@ typedef void (^FBKVONotificationBlock)(id _Nullable observer, id object, NSDicti
  @discussion On key-value change, the observer's -observeValueForKeyPath:ofObject:change:context: method is called. Observing an already observed object key path or nil results in no operation.
  */
 - (void)observe:(nullable id)object keyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(nullable void *)context;
-
 
 /**
  @abstract Registers observer for key-value change notification.
