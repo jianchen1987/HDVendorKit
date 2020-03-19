@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://wangwj@code.kh-super.net/scm/mob/hdvendorkit.git"
   s.license          = 'MIT'
   s.author           = {"VanJay" => "wangwanjie1993@gmail.com"}
-  s.source           = {:git => "https://wangwj@code.kh-super.net/scm/mob/hdvendorkit.git", :tag => s.version.to_s}
+  s.source           = {:git => "ssh://git@code.kh-super.net:7999/mob/hdvendorkit.git", :tag => s.version.to_s}
   s.social_media_url = 'https://wangwj@code.kh-super.net/scm/mob/hdvendorkit.git'
   s.requires_arc     = true
   s.documentation_url = 'https://wangwj@code.kh-super.net/scm/mob/hdvendorkit.git'
