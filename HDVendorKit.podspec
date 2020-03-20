@@ -5,13 +5,13 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
                        HDVendorKit 是一系列基础能力，比如网络请求、图片加载等，用于快速在其他项目使用或者第三方接入
                        DESC
-  s.homepage         = "https://wangwj@code.kh-super.net/scm/mob/hdvendorkit.git"
+  s.homepage         = "https://code.kh-super.net/projects/MOB/repos/hdvendorkit"
   s.license          = 'MIT'
   s.author           = {"VanJay" => "wangwanjie1993@gmail.com"}
   s.source           = {:git => "ssh://git@code.kh-super.net:7999/mob/hdvendorkit.git", :tag => s.version.to_s}
-  s.social_media_url = 'https://wangwj@code.kh-super.net/scm/mob/hdvendorkit.git'
+  s.social_media_url = 'https://code.kh-super.net/projects/MOB/repos/hdvendorkit'
   s.requires_arc     = true
-  s.documentation_url = 'https://wangwj@code.kh-super.net/scm/mob/hdvendorkit.git'
+  s.documentation_url = 'https://code.kh-super.net/projects/MOB/repos/hdvendorkit'
   s.screenshot       = 'https://xxx.png'
 
   s.platform         = :ios, '9.0'
