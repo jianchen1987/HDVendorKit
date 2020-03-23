@@ -6,7 +6,7 @@
 //  Copyright © 2019 chaos network technology. All rights reserved.
 //
 
-#import <HDUIKit/HDUIKit.h>
+#import <HDKitCore/HDKitCore.h>
 #import <SDWebImage/SDWebImage.h>
 #import <UIKit/UIKit.h>
 

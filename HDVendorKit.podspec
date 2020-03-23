@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = "HDVendorKit"
-  s.version          = "0.1.7"
-  s.summary          = "混沌 iOS 基础能力"
+  s.version          = "0.2.0"
+  s.summary          = "混沌 iOS 对第三方服务的封装"
   s.description      = <<-DESC
                        HDVendorKit 是一系列基础能力，比如网络请求、图片加载等，用于快速在其他项目使用或者第三方接入
                        DESC
@@ -12,26 +12,13 @@ Pod::Spec.new do |s|
   s.social_media_url = 'https://code.kh-super.net/projects/MOB/repos/hdvendorkit'
   s.requires_arc     = true
   s.documentation_url = 'https://code.kh-super.net/projects/MOB/repos/hdvendorkit'
-  s.screenshot       = 'https://xxx.png'
 
   s.platform         = :ios, '9.0'
   s.frameworks       = 'Foundation', 'UIKit'
   s.source_files     = 'HDVendorKit/HDVendorKit.h'
 
-  s.subspec 'KVOController' do |ss|
-    ss.source_files = 'HDVendorKit/FBKVOController'
-  end
-
-  s.subspec 'HDWeakTimer' do |ss|
-    ss.source_files = 'HDVendorKit/HDWeakTimer'
-  end
-
   s.subspec 'ObjcAssociatedObjectHelpers' do |ss|
     ss.source_files = 'HDVendorKit/ObjcAssociatedObjectHelpers'
-  end
-
-  s.subspec 'Foundation+HDLog' do |ss|
-    ss.source_files = 'HDVendorKit/Foundation+HDLog'
   end
 
   s.subspec 'TOTPGenerator' do |ss|
@@ -47,6 +34,6 @@ Pod::Spec.new do |s|
   s.subspec 'HDWebImageManager' do |ss|
     ss.source_files = 'HDVendorKit/HDWebImageManager'
     ss.dependency 'SDWebImage', '~> 5.3.3'
-    ss.dependency 'HDUIKit/Core'
+    ss.dependency 'HDKitCore/Core'
   end
 end

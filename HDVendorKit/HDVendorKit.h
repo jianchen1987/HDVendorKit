@@ -12,23 +12,7 @@
 #import <UIKit/UIKit.h>
 
 /// 版本号
-static NSString *const HDVendorKit_VERSION = @"0.1.7";
-
-#if __has_include("KVOController.h")
-#import "KVOController.h"
-#endif
-
-#if __has_include("FBKVOController.h")
-#import "FBKVOController.h"
-#endif
-
-#if __has_include("FBKVOController+HDVendorKit.h")
-#import "FBKVOController+HDVendorKit.h"
-#endif
-
-#if __has_include("NSObject+FBKVOController.h")
-#import "NSObject+FBKVOController.h"
-#endif
+static NSString *const HDVendorKit_VERSION = @"0.2.0";
 
 #if __has_include("HDWebImageManager.h")
 #import "HDWebImageManager.h"
@@ -36,10 +20,6 @@ static NSString *const HDVendorKit_VERSION = @"0.1.7";
 
 #if __has_include("ObjcAssociatedObjectHelpers.h")
 #import "ObjcAssociatedObjectHelpers.h"
-#endif
-
-#if __has_include("HDWeakTimer.h")
-#import "HDWeakTimer.h"
 #endif
 
 #if __has_include("OTPGenerator.h")
