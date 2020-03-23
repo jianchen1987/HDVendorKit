@@ -190,8 +190,9 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
         NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
         [self logMessage:[NSString stringWithFormat:@"网络请求失败， response 状态码：%zd，错误码 ：%zd, 当前请求地址：%@", response.statusCode, error.code, task.currentRequest.URL.absoluteString]];
 
-        NSInteger errorCode = error.code;
         /*
+         NSInteger errorCode = error.code;
+         
         // 切换线路或重试的前提都是业务层允许重试，即传来的最大重试次数 > 0
         if (maxRetry > 0 && [self isErrorShouldSwitchServerLine:error]) {
             [self logMessage:[NSString stringWithFormat:@"请求得到错误码 %zd ，在切换线路的 statusCode 数组中，将停止重试，原因：%@，业务层允许重试并且错误码在直接切服之列，开始切换服务器", errorCode, error.localizedDescription]];
