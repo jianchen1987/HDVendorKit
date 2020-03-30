@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "HDVendorKit"
-  s.version          = "0.2.1"
+  s.version          = "0.2.2"
   s.summary          = "混沌 iOS 对第三方服务的封装"
   s.description      = <<-DESC
                        HDVendorKit 是一系列基础能力，比如网络请求、图片加载等，用于快速在其他项目使用或者第三方接入
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   s.subspec 'AFNetworking+Retry' do |ss|
     ss.source_files = 'HDVendorKit/AFNetworking+Retry'
     ss.dependency 'HDVendorKit/ObjcAssociatedObjectHelpers'
-    ss.dependency 'AFNetworking', '~> 3.0.0'
+    ss.dependency 'AFNetworking', '~> 3.2.1'
   end
 
   s.subspec 'HDWebImageManager' do |ss|
