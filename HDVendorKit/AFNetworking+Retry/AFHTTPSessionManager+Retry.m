@@ -402,7 +402,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
         }
         originalFailure:^(NSURLSessionDataTask *task, NSError *e) {
             if (completionHandler) {
-                completionHandler(nil, nil, e);
+                completionHandler(task.response, nil, e);
             }
         }];
     return task;
