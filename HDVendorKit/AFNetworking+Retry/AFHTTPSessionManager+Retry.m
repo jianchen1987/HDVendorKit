@@ -383,4 +383,28 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
     return task;
 }
 
+- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+                               uploadProgress:(nullable void (^)(NSProgress *uploadProgress))uploadProgressBlock
+                             downloadProgress:(nullable void (^)(NSProgress *downloadProgress))downloadProgressBlock
+                            completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject, NSError *_Nullable error))completionHandler
+                                   retryCount:(NSInteger)retryCount
+                                retryInterval:(NSTimeInterval)retryInterval
+                                  progressive:(bool)progressive
+                             fatalStatusCodes:(NSArray<NSNumber *> *)fatalStatusCodes {
+    NSURLSessionDataTask *task = [self requestUrlWithRetryRemaining:retryCount
+        maxRetry:retryCount
+        retryInterval:retryInterval
+        progressive:progressive
+        fatalStatusCodes:fatalStatusCodes
+        originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
+            // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
+            return [self dataTaskWithRequest:request uploadProgress:uploadProgressBlock downloadProgress:downloadProgressBlock completionHandler:completionHandler];
+        }
+        originalFailure:^(NSURLSessionDataTask *task, NSError *e) {
+            if (completionHandler) {
+                completionHandler(nil, nil, e);
+            }
+        }];
+    return task;
+}
 @end

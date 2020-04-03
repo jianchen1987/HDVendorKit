@@ -28,7 +28,7 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
  @param failure 失败回调
  @param retryCount 重试次数
  @param retryInterval 重试间隔
- @param progressive 重试间隔s是否步进递增
+ @param progressive 重试间隔是否步进递增
  @param fatalStatusCodes 不重试的错误码
  @return NSURLSessionDataTask
  */
@@ -43,7 +43,7 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
  @param failure 失败回调
  @param retryCount 重试次数
  @param retryInterval 重试间隔
- @param progressive 重试间隔s是否步进递增
+ @param progressive 重试间隔是否步进递增
  @param fatalStatusCodes 不重试的错误码
  @return NSURLSessionDataTask
  */
@@ -59,7 +59,7 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
  @param failure 失败回调
  @param retryCount 重试次数
  @param retryInterval 重试间隔
- @param progressive 重试间隔s是否步进递增
+ @param progressive 重试间隔是否步进递增
  @param fatalStatusCodes 不重试的错误码
  @return NSURLSessionDataTask
  */
@@ -75,7 +75,7 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
  @param failure 失败回调
  @param retryCount 重试次数
  @param retryInterval 重试间隔
- @param progressive 重试间隔s是否步进递增
+ @param progressive 重试间隔是否步进递增
  @param fatalStatusCodes 不重试的错误码
  @return NSURLSessionDataTask
  */
@@ -90,7 +90,7 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
  @param failure 失败回调
  @param retryCount 重试次数
  @param retryInterval 重试间隔
- @param progressive 重试间隔s是否步进递增
+ @param progressive 重试间隔是否步进递增
  @param fatalStatusCodes 不重试的错误码
  @return NSURLSessionDataTask
  */
@@ -105,7 +105,7 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
  @param failure 失败回调
  @param retryCount 重试次数
  @param retryInterval 重试间隔
- @param progressive 重试间隔s是否步进递增
+ @param progressive 重试间隔是否步进递增
  @param fatalStatusCodes 不重试的错误码
  @return NSURLSessionDataTask
  */
@@ -120,10 +120,32 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
  @param failure 失败回调
  @param retryCount 重试次数
  @param retryInterval 重试间隔
- @param progressive 重试间隔s是否步进递增
+ @param progressive 重试间隔是否步进递增
  @param fatalStatusCodes 不重试的错误码
  @return NSURLSessionDataTask
  */
 - (NSURLSessionDataTask *)DELETE:(NSString *)URLString parameters:(NSDictionary *)parameters success:(void (^)(NSURLSessionDataTask *task, id responseObject))success failure:(void (^)(NSURLSessionDataTask *task, NSError *error))failure retryCount:(NSInteger)retryCount retryInterval:(NSTimeInterval)retryInterval progressive:(bool)progressive fatalStatusCodes:(NSArray<NSNumber *> *)fatalStatusCodes;
+
+/**
+为 AFNetworking 增加设置重试次数、重试间隔和提供重试间隔步进的能力
+
+@param request 请求
+@param uploadProgressBlock 上传进度
+@param downloadProgressBlock 下载进度
+@param completionHandler 回调
+@param retryCount 重试次数
+@param retryInterval 重试间隔
+@param progressive 重试间隔是否步进递增
+@param fatalStatusCodes 不重试的错误码
+@return NSURLSessionDataTask
+*/
+- (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
+                               uploadProgress:(nullable void (^)(NSProgress *uploadProgress))uploadProgressBlock
+                             downloadProgress:(nullable void (^)(NSProgress *_Nullable downloadProgress))downloadProgressBlock
+                            completionHandler:(nullable void (^)(NSURLResponse *_Nonnull response, id _Nullable responseObject, NSError *_Nullable error))completionHandler
+                                   retryCount:(NSInteger)retryCount
+                                retryInterval:(NSTimeInterval)retryInterval
+                                  progressive:(bool)progressive
+                             fatalStatusCodes:(NSArray<NSNumber *> *_Nullable)fatalStatusCodes;
 
 @end
