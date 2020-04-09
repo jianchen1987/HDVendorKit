@@ -9,6 +9,8 @@
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 typedef int (^RetryDelayCalcBlock)(int, int, int);
 
 @interface AFHTTPSessionManager (Retry)
@@ -149,3 +151,5 @@ typedef int (^RetryDelayCalcBlock)(int, int, int);
                              fatalStatusCodes:(NSArray<NSNumber *> *_Nullable)fatalStatusCodes;
 
 @end
+
+NS_ASSUME_NONNULL_END
