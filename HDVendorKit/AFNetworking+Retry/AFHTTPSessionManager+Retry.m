@@ -292,7 +292,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
                                                    fatalStatusCodes:fatalStatusCodes
                                              originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
                                                  // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
-                                                 return [self GET:URLString parameters:parameters progress:downloadProgress success:success failure:retryBlock];
+        return [self GET:URLString parameters:parameters headers:nil progress:downloadProgress success:success failure:retryBlock];
                                              }
                                                     originalFailure:failure];
     return task;
@@ -306,7 +306,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
                                                    fatalStatusCodes:fatalStatusCodes
                                              originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
                                                  // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
-                                                 return [self HEAD:URLString parameters:parameters success:success failure:retryBlock];
+        return [self HEAD:URLString parameters:parameters headers:nil success:success failure:retryBlock];
                                              }
                                                     originalFailure:failure];
     return task;
@@ -321,7 +321,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
                                                    fatalStatusCodes:fatalStatusCodes
                                              originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
                                                  // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
-                                                 return [self POST:URLString parameters:parameters progress:downloadProgress success:success failure:retryBlock];
+        return [self POST:URLString parameters:parameters headers:nil progress:downloadProgress success:success failure:retryBlock];
                                              }
                                                     originalFailure:failure];
     return task;
@@ -335,7 +335,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
                                                    fatalStatusCodes:fatalStatusCodes
                                              originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
                                                  // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
-                                                 return [self POST:URLString parameters:parameters constructingBodyWithBlock:block progress:downloadProgress success:success failure:retryBlock];
+        return [self POST:URLString parameters:parameters headers:nil constructingBodyWithBlock:block progress:downloadProgress success:success failure:retryBlock];
                                              }
                                                     originalFailure:failure];
     return task;
@@ -349,7 +349,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
                                                    fatalStatusCodes:fatalStatusCodes
                                              originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
                                                  // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
-                                                 return [self PUT:URLString parameters:parameters success:success failure:retryBlock];
+        return [self PUT:URLString parameters:parameters headers:nil success:success failure:retryBlock];
                                              }
                                                     originalFailure:failure];
     return task;
@@ -363,7 +363,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
                                                    fatalStatusCodes:fatalStatusCodes
                                              originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
                                                  // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
-                                                 return [self PATCH:URLString parameters:parameters success:success failure:retryBlock];
+                                                 return [self PATCH:URLString parameters:parameters headers:nil success:success failure:retryBlock];
                                              }
                                                     originalFailure:failure];
     return task;
@@ -377,7 +377,7 @@ SYNTHESIZE_ASC_PRIMITIVE(__retryPolicyLogMessagesEnabled, setRetryPolicyLogMessa
                                                    fatalStatusCodes:fatalStatusCodes
                                              originalRequestCreator:^NSURLSessionDataTask *(void (^retryBlock)(NSURLSessionDataTask *, NSError *)) {
                                                  // 重试会回到这里，如需更新 host 地址，可以在这里处理 URLString
-                                                 return [self DELETE:URLString parameters:parameters success:success failure:retryBlock];
+                                                 return [self DELETE:URLString parameters:parameters headers:nil success:success failure:retryBlock];
                                              }
                                                     originalFailure:failure];
     return task;
