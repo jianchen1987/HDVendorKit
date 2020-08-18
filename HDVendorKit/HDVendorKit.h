@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 /// 版本号
-static NSString *const HDVendorKit_VERSION = @"0.2.10";
+static NSString *const HDVendorKit_VERSION = @"0.2.11";
 
 #if __has_include("HDWebImageManager.h")
 #import "HDWebImageManager.h"
