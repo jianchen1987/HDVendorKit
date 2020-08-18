@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
     s.frameworks       = 'Foundation', 'UIKit'
     s.ios.vendored_framework = "#{s.name}-#{s.version}/ios/#{s.name}.framework"
     s.resources = "#{s.name}-#{s.version}/ios/#{s.name}.framework/Versions/A/Resources/*.bundle"
-    s.dependency 'AFNetworking', '~> 3.2.1'
+    s.dependency 'AFNetworking', '~> 4.0'
     s.dependency 'SDWebImage', '~> 5.3.3'
   else
     puts '....... HDVendorKit source ........'
