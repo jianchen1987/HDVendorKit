@@ -65,7 +65,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D0D06A83D1119563BF007AE /* Pods-HDVendorKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HDVendorKit_Tests.release.xcconfig"; path = "Target Support Files/Pods-HDVendorKit_Tests/Pods-HDVendorKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		BA6E2FCB1E6D9FBDE405ABD6 /* Pods_HDVendorKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HDVendorKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF12722F03F7F5B7D9A9D4B6 /* HDVendorKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HDVendorKit.podspec; path = ../HDVendorKit.podspec; sourceTree = "<group>"; };
+		CF12722F03F7F5B7D9A9D4B6 /* HDVendorKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = HDVendorKit.podspec; path = ../HDVendorKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E554CC5A10140D28553812BF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

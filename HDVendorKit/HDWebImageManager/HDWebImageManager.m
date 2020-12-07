@@ -49,6 +49,9 @@
                                 } else {
                                     imageView.image = placeholder;
                                 }
+                                if(completedBlock) {
+                                    completedBlock(image, error, cacheType, imageURL);
+                                }
                             } else {
                                 if (completedBlock) {
                                     if (size.width > 0 && size.height > 0) {
