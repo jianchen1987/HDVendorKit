@@ -36,6 +36,9 @@
         } else {
             imageView.image = placeholder;
         }
+        if (completedBlock) {
+            completedBlock(nil, [NSError errorWithDomain:@"url为空" code:-1 userInfo:nil], SDImageCacheTypeNone, nil);
+        }
         return;
     }
     [imageView sd_setImageWithURL:[NSURL URLWithString:url]
@@ -49,7 +52,7 @@
                                 } else {
                                     imageView.image = placeholder;
                                 }
-                                if(completedBlock) {
+                                if (completedBlock) {
                                     completedBlock(image, error, cacheType, imageURL);
                                 }
                             } else {
