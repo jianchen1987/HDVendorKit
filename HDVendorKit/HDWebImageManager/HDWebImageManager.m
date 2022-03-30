@@ -43,7 +43,7 @@
     }
     [imageView sd_setImageWithURL:[NSURL URLWithString:url]
                  placeholderImage:placeholder
-                          options:SDWebImageLowPriority | SDWebImageRetryFailed
+                          options:SDWebImageLowPriority | SDWebImageRetryFailed | SDWebImageProgressiveLoad | SDWebImageQueryMemoryData
                          progress:progressBlock
                         completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
                             if (error || !image) {
@@ -101,7 +101,7 @@
     }
     [imageView sd_setImageWithURL:[NSURL URLWithString:url]
                  placeholderImage:placeholder
-                          options:SDWebImageLowPriority | SDWebImageRetryFailed
+                          options:SDWebImageLowPriority | SDWebImageRetryFailed | SDWebImageProgressiveLoad | SDWebImageQueryMemoryData
                          progress:progressBlock
                         completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
                             if (error || !image) {
@@ -149,6 +149,7 @@
     [[SDImageCache sharedImageCache] clearMemory];
 
     // 赶紧停止正在进行的图片下载操作
-    [[SDWebImageManager sharedManager] cancelAll];
+    // 有可能导致图片终止下载，暂时注释
+//    [[SDWebImageManager sharedManager] cancelAll];
 }
 @end
