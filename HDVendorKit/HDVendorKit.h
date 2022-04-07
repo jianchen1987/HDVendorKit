@@ -12,7 +12,7 @@
 #import <UIKit/UIKit.h>
 
 /// 版本号
-static NSString *const HDVendorKit_VERSION = @"0.2.15";
+static NSString *const HDVendorKit_VERSION = @"0.3.0";
 
 #if __has_include("HDWebImageManager.h")
 #import "HDWebImageManager.h"
@@ -36,6 +36,10 @@ static NSString *const HDVendorKit_VERSION = @"0.2.15";
 
 #if __has_include("AFHTTPSessionManager+Retry.h")
 #import "AFHTTPSessionManager+Retry.h"
+#endif
+
+#if __has_include("WNFMDBManager.h")
+#import "WNFMDBManager.h"
 #endif
 
 #endif /* HDVendorKit_h */
