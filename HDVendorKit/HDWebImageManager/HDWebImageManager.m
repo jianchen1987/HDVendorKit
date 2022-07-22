@@ -43,7 +43,7 @@
     }
     [imageView sd_setImageWithURL:[NSURL URLWithString:url]
                  placeholderImage:placeholder
-                          options:SDWebImageLowPriority | SDWebImageRetryFailed | SDWebImageProgressiveLoad | SDWebImageQueryMemoryDataSync
+                          options:0
                          progress:progressBlock
                         completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
                             if (error || !image) {
@@ -101,7 +101,7 @@
     }
     [imageView sd_setImageWithURL:[NSURL URLWithString:url]
                  placeholderImage:placeholder
-                          options:SDWebImageLowPriority | SDWebImageRetryFailed | SDWebImageProgressiveLoad | SDWebImageQueryMemoryData
+                          options:0
                          progress:progressBlock
                         completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
                             if (error || !image) {
