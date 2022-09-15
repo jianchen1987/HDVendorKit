@@ -102,38 +102,7 @@
                  placeholderImage:placeholder
                           options:0
                          progress:progressBlock
-                        completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
-                            if (error || !image) {
-//                                if (size.width > 0 && size.height > 0) {
-//                                    imageView.image = [placeholder hd_imageResizedWithScreenScaleInLimitedSize:size];
-//                                } else {
-//                                    imageView.image = placeholder;
-//                                }
-                            } else {
-                                // 如果没有缓存，这里拿到的图片，即使是GIF用该方法也判断不到，所以暂时注释该判断，否则第一次拿到的gif图将静止
-                                /*
-                                BOOL isGIF = (image.sd_imageFormat == SDImageFormatGIF);
-                                if (!isGIF) {
-                                    if (completedBlock) {
-                                        if (size.width > 0 && size.height > 0) {
-                                            completedBlock([image hd_imageResizedWithScreenScaleInLimitedSize:size], error, cacheType, imageURL);
-                                        } else {
-                                            completedBlock(image, error, cacheType, imageURL);
-                                        }
-                                    } else {
-                                        if (size.width > 0 && size.height > 0) {
-                                            imageView.image = [image hd_imageResizedWithScreenScaleInLimitedSize:size];
-                                        } else {
-                                            imageView.image = image;
-                                        }
-                                    }
-                                } else {
-                                    // HDLog(@"gif 不做额外处理");
-                                }
-                                */
-                            }
-                        }];
-    ;
+                        completed:completedBlock];
 }
 
 + (void)downloadImageWithURL:(nullable NSString *)url progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock completed:(nullable SDWebImageDownloaderCompletedBlock)completedBlock {
