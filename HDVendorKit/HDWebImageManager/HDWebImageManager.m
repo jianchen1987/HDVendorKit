@@ -91,12 +91,11 @@
 }
 
 + (void)setGIFImageWithURL:(nullable NSString *)url size:(CGSize)size placeholderImage:(nullable UIImage *)placeholder imageView:(nullable SDAnimatedImageView *)imageView progress:(nullable SDWebImageDownloaderProgressBlock)progressBlock completed:(nullable SDExternalCompletionBlock)completedBlock {
+    if (size.width > 0 && size.height > 0) {
+        placeholder = [placeholder hd_imageResizedWithScreenScaleInLimitedSize:size];
+    }
     if (HDIsStringEmpty(url)) {
-        if (size.width > 0 && size.height > 0) {
-            imageView.image = [placeholder hd_imageResizedWithScreenScaleInLimitedSize:size];
-        } else {
-            imageView.image = placeholder;
-        }
+        imageView.image = placeholder;
         return;
     }
     [imageView sd_setImageWithURL:[NSURL URLWithString:url]
@@ -105,11 +104,11 @@
                          progress:progressBlock
                         completed:^(UIImage *_Nullable image, NSError *_Nullable error, SDImageCacheType cacheType, NSURL *_Nullable imageURL) {
                             if (error || !image) {
-                                if (size.width > 0 && size.height > 0) {
-                                    imageView.image = [placeholder hd_imageResizedWithScreenScaleInLimitedSize:size];
-                                } else {
-                                    imageView.image = placeholder;
-                                }
+//                                if (size.width > 0 && size.height > 0) {
+//                                    imageView.image = [placeholder hd_imageResizedWithScreenScaleInLimitedSize:size];
+//                                } else {
+//                                    imageView.image = placeholder;
+//                                }
                             } else {
                                 // 如果没有缓存，这里拿到的图片，即使是GIF用该方法也判断不到，所以暂时注释该判断，否则第一次拿到的gif图将静止
                                 /*
